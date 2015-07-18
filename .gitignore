@@ -2,6 +2,7 @@
 !/README.md
 !/.gitmodules
 !/.bash_profile
+!/.bashrc
 !/.vimrc
 !/.gitconfig
 !/.gitignore_global

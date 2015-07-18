@@ -112,7 +112,8 @@ let g:ctrlp_custom_ignore = {
             \ 'dir':  '\v[\/](\.(git|hg|svn))|(node_modules)$',
             \ 'file': '\v\.(exe|so|dll|ico|png|jpe?g|DS_Store)$',
             \ }
-nmap <silent> <C-D> :NERDTreeToggle<CR>
+
+map <silent> <C-D> :NERDTreeToggle<CR>
 
 set scrolloff=8
 set sidescrolloff=15
