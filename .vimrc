@@ -1,3 +1,4 @@
+" teste
 scriptencoding utf-8
 set encoding=utf-8
 
@@ -22,7 +23,6 @@ NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'Lokaltog/vim-powerline'
-
 call neobundle#end()
 
 filetype plugin indent on
@@ -35,9 +35,19 @@ set showcmd
 
 syntax on
 syntax enable
-imap <C-c> <esc>
+imap <C-c> <y>
+imap <C-v> <p>
+imap <C-z> <u>
+noremap <C-S> <Esc>:w<CR>
 
-set tabstop=4
+
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-d>'
+let g:multi_cursor_quit_key='<Esc>'
+
+set number
+highlight LineNr ctermfg=DarkGray
+set tabstop=2
 set softtabstop=4
 set shiftwidth=4
 set textwidth=80
@@ -49,9 +59,9 @@ set smartindent
 set ttyfast
 set autoread
 set more
-set cursorline!
-set list
-set listchars=nbsp:¬,tab:»·,trail:·,eol:$,extends:>,precedes:<
+"set cursorline!
+"set list
+"set listchars=nbsp:¬,tab:»·,trail:·,eol:$,extends:>,precedes:<
 
 highlight NonText term=standout cterm=bold ctermfg=0  guifg=Black
 
@@ -68,6 +78,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_syntax_checker=["jsxhint"]
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
+
 
 "set noerrorbells
 "set novisualbell
@@ -113,7 +124,7 @@ let g:ctrlp_custom_ignore = {
             \ 'file': '\v\.(exe|so|dll|ico|png|jpe?g|DS_Store)$',
             \ }
 
-map <silent> <C-D> :NERDTreeToggle<CR>
+noremap <C-k> :NERDTreeToggle<CR>
 
 set scrolloff=8
 set sidescrolloff=15
@@ -133,4 +144,4 @@ let g:user_emmet_settings = {
 
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
 autocmd FileType html set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
-autocmd FileType php set tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
+autocmd FileType php set tabstop=5|set shiftwidth=4|set softtabstop=4|set expandtab
