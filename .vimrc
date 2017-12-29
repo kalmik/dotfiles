@@ -1,147 +1,149 @@
-" teste
-scriptencoding utf-8
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 set encoding=utf-8
+set relativenumber
+set nu
+set clipboard=unnamed
 
-if 0 | endif
+set splitbelow
+set splitright
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
-if has('vim_starting')
-    if &compatible
-        set nocompatible
-    endif
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
 
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'Lokaltog/vim-powerline'
-call neobundle#end()
+map <C-n> :NERDTreeToggle<CR>
+" Plugins
+Plugin 'dracula/vim'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'scrooloose/syntastic'
+"Plugin 'nvie/vim-flake8'
+"Plugin 'klen/python-mode'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'mhinz/vim-signify'
+" Plugin 'davidhalter/jedi-vim'
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'farmergreg/vim-lastplace'
+Plugin 'Yggdroot/indentLine'
 
-filetype plugin indent on
-NeoBundleCheck
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
-set autowrite
-set hidden
-let mapleader = ","
-set showcmd
 
-syntax on
-syntax enable
-imap <C-c> <y>
-imap <C-v> <p>
-imap <C-z> <u>
-noremap <C-S> <Esc>:w<CR>
-
+set ttyfast
+set autoread
+set more
 
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key='<C-d>'
 let g:multi_cursor_quit_key='<Esc>'
 
-set number
-highlight LineNr ctermfg=DarkGray
-set tabstop=2
-set softtabstop=4
-set shiftwidth=4
-set textwidth=80
-set smarttab
-set expandtab
-set smartindent
-"set ruler
-"set relativenumber
-set ttyfast
-set autoread
-set more
-"set cursorline!
+let g:syntastic_python_flake8_args='--ignore=F821,E302,E501,E402'
+
 "set list
-"set listchars=nbsp:¬,tab:»·,trail:·,eol:$,extends:>,precedes:<
+"set ruler
+"set listchars=nbsp:=,tab:»·,trail:·,extends:>,precedes:<
 
-highlight NonText term=standout cterm=bold ctermfg=0  guifg=Black
+filetype plugin indent on
 
-"set statusline=
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%2*\ %f\ %m\ %r%*
-"set statusline+=%3*%=%*
-"set statusline+=%#warningmsg#
-"set statusline+=%*
-"set statusline+=%4*%l/%L:%v%*
-"set statusline+=%5*\ %*
+autocmd Filetype php setlocal sts=4 sw=4 expandtab
+autocmd Filetype blade setlocal sts=2 sw=2 expandtab
+autocmd Filetype perl setlocal sts=4 sw=4 expandtab
+autocmd Filetype sh setlocal sts=4 sw=4 expandtab
+autocmd Filetype javascript setlocal sts=2 sw=2 expandtab
+autocmd Filetype euphoria3 setlocal sts=2 sw=2 expandtab
+autocmd Filetype css setlocal sts=2 sw=2 expandtab
+autocmd Filetype sql setlocal sts=2 sw=2 expandtab
+autocmd Filetype lua setlocal sts=2 sw=2 expandtab
+autocmd Filetype haskell setlocal sts=2 sw=2 expandtab
+autocmd Filetype scss setlocal sts=2 sw=2 expandtab
+autocmd Filetype html setlocal sts=2 sw=2 expandtab
+autocmd Filetype jinja setlocal sts=2 sw=2 expandtab syntax=htmo
+autocmd Filetype python setlocal sts=4 sw=4 expandtab
+autocmd Filetype c setlocal sts=4 sw=4 expandtab
+autocmd Filetype go setlocal sts=4 sw=4 expandtab
+autocmd Filetype cpp setlocal sts=4 sw=4 expandtab
+autocmd Filetype ruby setlocal sts=2 sw=2 expandtab
+autocmd Filetype vcl setlocal sts=4 sw=4 expandtab
+autocmd Filetype json setlocal sts=4 sw=4 expandtab
+autocmd Filetype yaml setlocal sts=4 sw=4 expandtab
+autocmd Filetype erb setlocal sts=4 sw=4 expandtab
+au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_syntax_checker=["jsxhint"]
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1
 
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
 
-"set noerrorbells
-"set novisualbell
-set timeoutlen=500
-set hlsearch
-set incsearch
-set magic
-set showmatch
-set matchtime=2
+syntax on
+
+set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+
+" Always show statusline
 set laststatus=2
+"
+" Use 256 colours (Use this setting only if your terminal supports 256 colours)
+set t_Co=256
+color dracula
+hi Normal ctermbg=None ctermfg=None guifg=None guibg=None
+hi Cursorline ctermbg=None ctermfg=None guifg=None guibg=None
+hi LineNr ctermbg=None ctermfg=None guifg=None guibg=None
 
-if has("persistent_undo")
-    set undodir=~/.vim/undodir
-    set undofile
-endif
+" Removing whitespaces
+autocmd BufWritePre * %s/\s\+$//e
+set shortmess+=c
 
-autocmd BufReadPost *
-            \ if line("'\"") > 0 && line("'\"") <= line("$") |
-            \   exe "normal! g`\"" |
-            \ endif
-set viminfo^=%
+"Tabs
+nnoremap <C-S-tab> :tabprevious<CR>
+nnoremap <C-tab>   :tabnext<CR>
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-S-tab> <Esc>:tabprevious<CR>i
+inoremap <C-tab>   <Esc>:tabnext<CR>i
+inoremap <C-t>     <Esc>:tabnew<CR>
+nnoremap H gT
+nnoremap L gt
 
-map 0 ^
+noremap <Leader>q q
+noremap q <Nop>
 
-nmap <leader><cr> i<cr><Esc>
-
-cmap w!! %!sudo tee > /dev/null %
-
-map <silent> <F5> <esc>:w<CR><esc>:!./%<CR>
-map <silent> <C-F7> :only<CR>:set invnumber invlist number?<CR>
-map <silent> <F7> :set invpaste paste?<CR>i
-
-command! Q q
-command! W w
-
-map Q <Nop>
-let loaded_matchparen = 1
-
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\v[\/](\.(git|hg|svn))|(node_modules)$',
-            \ 'file': '\v\.(exe|so|dll|ico|png|jpe?g|DS_Store)$',
-            \ }
-
-noremap <C-k> :NERDTreeToggle<CR>
-
-set scrolloff=8
-set sidescrolloff=15
-set sidescroll=1
-
-let g:user_emmet_settings = {
-            \  'html' : {
-            \    'snippets' : {
-            \      'cdn:jsx' : "script[src=\"https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js\"]",
-            \      'cdn:react' : "script[src=\"https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js\"]",
-            \      'cdn:jquery' : "script[src=\"https://code.jquery.com/jquery-1.11.1.js\"]",
-            \      'cdn:jqueryui' : "script[src=\"https://code.jquery.com/ui/1.11.4/jquery-ui.js\"]",
-            \      'cdn:socketio' : "script[src=\"https://cdn.socket.io/socket.io-1.2.0.js\"]"
-            \    }
-            \  }
-            \}
-
-autocmd FileType javascript set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
-autocmd FileType html set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
-autocmd FileType php set tabstop=5|set shiftwidth=4|set softtabstop=4|set expandtab
+set cursorline!
+set list
+set listchars=nbsp:¬,tab:»·,trail:·,eol:$,extends:>,precedes:<
+highlight NonText term=standout cterm=bold ctermfg=0  guifg=Black
+hi CursorLine gui=underline cterm=underline
+set ttyfast
