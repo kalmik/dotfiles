@@ -1,5 +1,6 @@
 set nocompatible              " required
 filetype off                  " required
+set backspace=indent,eol,start
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -58,11 +59,6 @@ Plugin 'Yggdroot/indentLine'
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
-
-set ttyfast
-set autoread
-set more
-
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key='<C-d>'
 let g:multi_cursor_quit_key='<Esc>'
@@ -120,9 +116,9 @@ set laststatus=2
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
 color dracula
-hi Normal ctermbg=None ctermfg=None guifg=None guibg=None
-hi Cursorline ctermbg=None ctermfg=None guifg=None guibg=None
-hi LineNr ctermbg=None ctermfg=None guifg=None guibg=None
+hi Normal ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
+hi Cursorline ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
+hi LineNr ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
 
 " Removing whitespaces
 autocmd BufWritePre * %s/\s\+$//e
@@ -146,4 +142,3 @@ set list
 set listchars=nbsp:¬,tab:»·,trail:·,eol:$,extends:>,precedes:<
 highlight NonText term=standout cterm=bold ctermfg=0  guifg=Black
 hi CursorLine gui=underline cterm=underline
-set ttyfast
