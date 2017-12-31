@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 if [ "$(uname)" == "Darwin" ]; then
     brew install tmux
     brew install reattach-to-user-namespace
@@ -13,11 +15,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 fi
 
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 ln -sfv "$DIR/.vimrc" ~/.vimrc
 ln -sfv "$DIR/.tmux.conf" ~/.tmux.conf
 ln -sfv "$DIR/.gitconfig" ~/.gitconfig
 ln -sfv "$DIR/.gitignore" ~/.gitignore
 ln -sfv "$DIR/.gitignore_global" ~/.gitignore_global
-wq
