@@ -9,15 +9,17 @@ if [ "$(uname)" == "Darwin" ]; then
     ln -sfv "$DIR/.bash_profile" ~/.bash_profile
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     sudo apt-get install tmux
-    sudo apt-get install vim
+    sudo apt-get install vim-gtk
     sudo apt-get install curl
     ln -sfv "$DIR/.bashrc" ~/.bashrc
 fi
 
-
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 ln -sfv "$DIR/.vimrc" ~/.vimrc
 ln -sfv "$DIR/.tmux.conf" ~/.tmux.conf
 ln -sfv "$DIR/.gitconfig" ~/.gitconfig
 ln -sfv "$DIR/.gitignore" ~/.gitignore
 ln -sfv "$DIR/.gitignore_global" ~/.gitignore_global
+
+vim +PluginInstall +qall
