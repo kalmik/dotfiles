@@ -1,0 +1,83 @@
+[ui]
+username=Sergio Filipe <sergio.filipe@evolux.net.br>
+ignore=/Users/sergiofilipe/.hgignore_global
+
+[extensions]
+hgext.churn=
+hgext.pager=
+# Interface grafica para o historico:
+hgk=
+# Importar repositórios svn, git, etc:
+convert=
+# Ver [extdiff]
+extdiff=
+# Enviar patches por e-mail
+patchbomb=
+# hg fetch == hg pull + merge + commit
+fetch=
+#svn=
+color=
+rebase=
+mq=
+shelve=
+transplant=
+# Habilita seleção interativa de itens para dar commit
+record=
+
+[email]
+# patchbomb HOWTO:
+# hg email -nd 7:tip
+#  -n  dry-run
+#  -d  show diffstat before sending
+from = Sergio Filipe <sergio.filipe@evolux.net.br>
+cc = sergio.filipe@evolux.net.br
+
+
+[smtp]
+host = mail.evolux.net.br
+tls = true
+
+[diff]
+git=True
+
+[extdiff]
+# `hg opendiff` vai abrir FileMerge do Mac OS X
+cmd.opendiff = opendiff
+# `hg sbsdiff` == side-by-side diff
+cmd.sbsdiff = diff
+opts.sbsdiff = -N -b --side-by-side --width=90
+
+cmd.sourcetreediff=opendiff
+opts.sourcetreediff=
+[pager]
+# Usar less por padrão dá pau com pipes na linha de comando.
+# Usar apenas com o `hg log`
+pager = LESS='FRSX' less
+quiet = True
+attend = log
+
+[merge-tools]
+filemerge.executable = /Users/sergiofilipe/bin/opendiff-w
+filemerge.args = $local $other -ancestor $base -merge $output
+
+[extdiff]
+cmd.opendiff = opendiff-w
+cmd.bbdiff = bbdiff
+
+[alias]
+jira = !$HG up `$HG branches | grep $1 | cut -d ' ' -f1`
+jiracommit = !$HG commit -m "`$HG branch | cut -d'-' -f1,2`: $1"
+jiraci = jiracommit
+#releases = !$HG branches | grep ^releases
+#dev = !$HG branches | grep ^dev
+#devs = dev
+#show = !$HG log -r $1 -p
+mergecommit = !$HG pull --rebase && $HG merge $1 && $HG commit -m "Merge $1 -> $($HG branch)"
+mergeci = mergecommit
+mci = mergecommit
+dci = !touch foo; $HG add foo; $HG commit -m "$1"; $HG rm foo; $HG commit --amend -m "$1"
+dummycommit = dci
+logcat = !$HG log --config pager.pager=cat $@
+diffcat = !$HG diff --config pager.pager=cat $@
+u = !HG up; find . -name \*.pyc -delete
+.. = !HG log -r "parents(min(branch(`hg branch`)))" | grep 'branch:'

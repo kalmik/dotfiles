@@ -21,5 +21,7 @@ ln -sfv "$DIR/.tmux.conf" ~/.tmux.conf
 ln -sfv "$DIR/.gitconfig" ~/.gitconfig
 ln -sfv "$DIR/.gitignore" ~/.gitignore
 ln -sfv "$DIR/.gitignore_global" ~/.gitignore_global
+ln -sfv "$DIR/.hgignore_global" ~/.hgignore_global
+ln -sfv "$DIR/.hgrc" ~/.hgrc
 
 vim +PluginInstall +qall

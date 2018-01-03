@@ -6,6 +6,8 @@
 !/.vimrc
 !/.gitconfig
 !/.gitignore_global
+!/.hgignore_global
+!/.hgrc
 !/.tmux.conf
 !/print.png
 !/install.sh
