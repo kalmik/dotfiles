@@ -56,6 +56,7 @@ Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'farmergreg/vim-lastplace'
 Plugin 'Yggdroot/indentLine'
+Plugin 'slashmili/alchemist.vim'
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
@@ -64,10 +65,6 @@ let g:multi_cursor_next_key='<C-d>'
 let g:multi_cursor_quit_key='<Esc>'
 
 let g:syntastic_python_flake8_args='--ignore=F821,E302,E501,E402'
-
-"set list
-"set ruler
-"set listchars=nbsp:=,tab:»·,trail:·,extends:>,precedes:<
 
 filetype plugin indent on
 
@@ -85,9 +82,9 @@ autocmd Filetype scss setlocal sts=2 sw=2 expandtab
 autocmd Filetype html setlocal sts=2 sw=2 expandtab
 autocmd Filetype jinja setlocal sts=2 sw=2 expandtab syntax=htmo
 autocmd Filetype python setlocal sts=4 sw=4 expandtab
-autocmd Filetype c setlocal sts=4 sw=4 expandtab
+autocmd Filetype c setlocal sts=8 sw=8
+autocmd Filetype cpp setlocal sts=8 sw=8
 autocmd Filetype go setlocal sts=4 sw=4 expandtab
-autocmd Filetype cpp setlocal sts=4 sw=4 expandtab
 autocmd Filetype ruby setlocal sts=2 sw=2 expandtab
 autocmd Filetype vcl setlocal sts=4 sw=4 expandtab
 autocmd Filetype json setlocal sts=4 sw=4 expandtab
@@ -97,14 +94,14 @@ au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 
 
 "python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
+"py << EOF
+"import os
+"import sys
+ "if 'VIRTUAL_ENV' in os.environ:
+"  project_base_dir = os.environ['VIRTUAL_ENV']
+"  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"  execfile(activate_this, dict(__file__=activate_this))
+"EOF
 
 syntax on
 
@@ -137,6 +134,7 @@ nnoremap L gt
 noremap <Leader>q q
 noremap q <Nop>
 
+set ttyfast
 set cursorline!
 set list
 set listchars=nbsp:¬,tab:»·,trail:·,eol:$,extends:>,precedes:<

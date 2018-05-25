@@ -27,15 +27,15 @@ function hg_branch () {
 
 
 PS1='\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\e[0;33m\]$(git_branch)$(hg_branch)\n\[\e[7:49:91m\]\[\e[0m\]$ '
-export EVOLUXROOT=~/evolux
+export EVOLUXROOT=/var/sites/evolux
 export EVOLUXNODEROOT=~/evolux-node
 export edev="172.16.7.137"
 alias edev-login="ssh root@$edev -p 2222"
 alias run-tests="EVOLUX_TEST_INI='test_mysql.ini' nosetests --with-pylons='test_mysql.ini' -v -x $@"
-alias ev="source ~/virtualenvs/evolux/bin/activate; cd $EVOLUXROOT"
+alias ev="source /usr/local/pythonenv/evolux/bin/activate; cd $EVOLUXROOT"
 alias evn="source ~/virtualenvs/evolux-node/bin/activate; cd $EVOLUXNODEROOT"
 alias ls='ls -G'
-alias grep='grep -nri --color --exclude-dir=".//.hg" --exclude=*.{pyc,patch,orig,rej}'
+alias ggrep='grep -nri --color --exclude-dir=".//.hg" --exclude-dir={.bzr,CVS,.git,.hg,.svn,node_modules,vendor,app_bundles} --exclude=*.{pyc,patch,orig,rej}'
 
 function restart_evolux() {
     ev
@@ -61,3 +61,7 @@ fi
 export GOROOT=$HOME/go-home
 export PATH=$PATH:$GOROOT/bin
 # safe sed grep get_random_password ./ --include=*.py | awk '{print }' | cut -d : -f 1 | uniq | awk '{print sed -i.bak s/get_random_password/random_secret/  -bash}' | sh -
+# tmux a -d
+
+
+alias run-tests-pg='sudo -u postgres dropdb evolux_teste; sudo -u postgres createdb evolux_teste -O evolux; EVOLUX_TEST_INI='\''test_psql.ini'\'' nosetests --with-pylons='\''test_psql.ini'\'' --rednose -v -x '
