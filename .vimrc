@@ -80,7 +80,7 @@ autocmd Filetype lua setlocal sts=2 sw=2 expandtab
 autocmd Filetype haskell setlocal sts=2 sw=2 expandtab
 autocmd Filetype scss setlocal sts=2 sw=2 expandtab
 autocmd Filetype html setlocal sts=2 sw=2 expandtab
-autocmd Filetype jinja setlocal sts=2 sw=2 expandtab syntax=htmo
+autocmd Filetype jinja setlocal sts=2 sw=2 expandtab syntax=html
 autocmd Filetype python setlocal sts=4 sw=4 expandtab
 autocmd Filetype c setlocal sts=8 sw=8
 autocmd Filetype cpp setlocal sts=8 sw=8
@@ -90,6 +90,7 @@ autocmd Filetype vcl setlocal sts=4 sw=4 expandtab
 autocmd Filetype json setlocal sts=4 sw=4 expandtab
 autocmd Filetype yaml setlocal sts=4 sw=4 expandtab
 autocmd Filetype erb setlocal sts=4 sw=4 expandtab
+autocmd Filetype xml setlocal sts=2 sw=2 expandtab
 au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 
 
@@ -118,7 +119,7 @@ hi Cursorline ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
 hi LineNr ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
 
 " Removing whitespaces
-autocmd BufWritePre * %s/\s\+$//e
+autocmd FileType  BufWritePre * %s/\s\+$//e
 set shortmess+=c
 
 "Tabs

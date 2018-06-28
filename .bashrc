@@ -36,6 +36,7 @@ alias ev="source /usr/local/pythonenv/evolux/bin/activate; cd $EVOLUXROOT"
 alias evn="source ~/virtualenvs/evolux-node/bin/activate; cd $EVOLUXNODEROOT"
 alias ls='ls -G'
 alias ggrep='grep -nri --color --exclude-dir=".//.hg" --exclude-dir={.bzr,CVS,.git,.hg,.svn,node_modules,vendor,app_bundles} --exclude=*.{pyc,patch,orig,rej}'
+#alias ggrep='grep -nri --color --exclude-dir=".//.hg" --exclude=*.{pyc,patch,orig,rej}'
 
 function restart_evolux() {
     ev
@@ -47,7 +48,6 @@ function restart_evolux() {
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-source ~/.vm_env
 
 export ONE_SKY_API_KEY="e1DEAQ0FIeEVfyatNsYHgoyFs7Nq3GX8"
 export ONE_SKY_API_SECRET="Ji86AJmwf1n8nb4ooprE3Yz1yeJi762G"
@@ -65,3 +65,12 @@ export PATH=$PATH:$GOROOT/bin
 
 
 alias run-tests-pg='sudo -u postgres dropdb evolux_teste; sudo -u postgres createdb evolux_teste -O evolux; EVOLUX_TEST_INI='\''test_psql.ini'\'' nosetests --with-pylons='\''test_psql.ini'\'' --rednose -v -x '
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if [[ -S "$SSH_AUTH_SOCK" && ! -h "$SSH_AUTH_SOCK" ]]; then
+    ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock;
+fi
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock;
