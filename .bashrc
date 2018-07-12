@@ -26,8 +26,8 @@ function hg_branch () {
 }
 
 
-PS1='\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\e[0;33m\]$(git_branch)$(hg_branch)\n\[\e[7:49:91m\]\[\e[0m\]$ '
 export EVOLUXROOT=/var/sites/evolux
+PS1='\[\033[01;31m\]\h \[\e[0m\]--> \[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\e[0;33m\]$(git_branch)$(hg_branch)\n\[\e[7:49:91m\]\[\e[0m\][\D{%H.%M.%S}] $ '
 export EVOLUXNODEROOT=~/evolux-node
 export edev="172.16.7.137"
 alias edev-login="ssh root@$edev -p 2222"
