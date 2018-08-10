@@ -81,3 +81,4 @@ logcat = !$HG log --config pager.pager=cat $@
 diffcat = !$HG diff --config pager.pager=cat $@
 u = !HG up; find . -name \*.pyc -delete
 .. = !HG log -r "parents(min(branch(`hg branch`)))" | grep 'branch:'
+squash = !$HG rebase --dest .~$1 --base . --collapse $@

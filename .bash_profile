@@ -35,7 +35,7 @@ alias run-tests="EVOLUX_TEST_INI='test_mysql.ini' nosetests --with-pylons='test_
 alias ev="source ~/virtualenvs/evolux/bin/activate; cd $EVOLUXROOT"
 alias evn="source ~/virtualenvs/evolux-node/bin/activate; cd $EVOLUXNODEROOT"
 alias ls='ls -G'
-alias grep='grep -nri --color --exclude-dir=".//.hg" --exclude=*.{pyc,patch,orig,rej}'
+alias ggrep='grep -nri --color --exclude-dir=".//.hg" --exclude=*.{pyc,patch,orig,rej}'
 
 function restart_evolux() {
     ev
@@ -61,3 +61,8 @@ fi
 export GOROOT=$HOME/go-home
 export PATH=$PATH:$GOROOT/bin
 # safe sed grep get_random_password ./ --include=*.py | awk '{print }' | cut -d : -f 1 | uniq | awk '{print sed -i.bak s/get_random_password/random_secret/  -bash}' | sh -
+#alias configure_fs=./configure --enable-core-odbc-support --disable-libyuv --disable-libvpx --enable-core-libedit-support --enable-core-pgsql-support
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
