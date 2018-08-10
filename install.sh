@@ -15,6 +15,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 fi
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ln -sfv "$DIR/.vimrc" ~/.vimrc
 ln -sfv "$DIR/.tmux.conf" ~/.tmux.conf
