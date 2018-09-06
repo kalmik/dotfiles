@@ -1,6 +1,7 @@
 [ui]
 username=Sergio Filipe <sergio.filipe@evolux.net.br>
 ignore=/Users/sergiofilipe/.hgignore_global
+merge = meld
 
 [extensions]
 hgext.churn=
@@ -59,10 +60,12 @@ attend = log
 [merge-tools]
 filemerge.executable = /Users/sergiofilipe/bin/opendiff-w
 filemerge.args = $local $other -ancestor $base -merge $output
+meld.args = $local $base $other --output=$output
 
 [extdiff]
 cmd.opendiff = opendiff-w
 cmd.bbdiff = bbdiff
+
 
 [alias]
 jira = !$HG up `$HG branches | grep $1 | cut -d ' ' -f1`

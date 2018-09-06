@@ -27,14 +27,14 @@ function hg_branch () {
 
 
 export EVOLUXROOT=/var/sites/evolux
-PS1='\[\033[01;31m\]\h \[\e[0m\]--> \[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\e[0;33m\]$(git_branch)$(hg_branch)\n\[\e[7:49:91m\]\[\e[0m\][\D{%H.%M.%S}] $ '
+PS1='\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\e[0;33m\]$(git_branch)$(hg_branch)\n\[\e[7:49:91m\]\[\e[0m\][\D{%H.%M.%S}] $ '
 export EVOLUXNODEROOT=~/evolux-node
 export edev="172.16.7.137"
 alias edev-login="ssh root@$edev -p 2222"
 alias run-tests="EVOLUX_TEST_INI='test_mysql.ini' nosetests --with-pylons='test_mysql.ini' -v -x $@"
 alias ev="source /usr/local/pythonenv/evolux/bin/activate; cd $EVOLUXROOT"
 alias evn="source ~/virtualenvs/evolux-node/bin/activate; cd $EVOLUXNODEROOT"
-alias ls='ls -G'
+alias ls='ls --color -G'
 alias ggrep='grep -nri --color --exclude-dir=".//.hg" --exclude-dir={.bzr,CVS,.git,.hg,.svn,node_modules,vendor,app_bundles} --exclude=*.{pyc,patch,orig,rej}'
 #alias ggrep='grep -nri --color --exclude-dir=".//.hg" --exclude=*.{pyc,patch,orig,rej}'
 
@@ -90,3 +90,14 @@ fi
 if [ "$(ssh-add -l)" == "The agent has no identities." ]; then
     ssh-add
 fi
+
+export LC_TMPVIM=/tmp/sergio_vimrc
+export LC_TMPBASH=/tmp/sergio_bash
+function sssh() {
+    host=$1
+    scp -P2222 ~/.vimrc root@$host:$LC_TMPVIM
+    scp -P2222 ~/.bashrc root@$host:$LC_TMPBASH
+    ssh -o SendEnv=LC_TMPVIM root@$host -p2222
+}
+export DISPLAY=:0.0
+export LIBGL_ALWAYS_INDIRECT=1
