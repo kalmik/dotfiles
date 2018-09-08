@@ -102,3 +102,4 @@ function sssh() {
 export DISPLAY=:0.0
 export LIBGL_ALWAYS_INDIRECT=1
 alias tmux='tmux -u'
+eval `dircolors ~/dotfiles/dircolors-solarized/dircolors.256dark`
