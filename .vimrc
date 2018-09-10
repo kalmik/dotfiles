@@ -114,6 +114,7 @@ set laststatus=2
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
 color dracula
+color monokai
 hi Normal ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
 hi Cursorline ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
 hi LineNr ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE

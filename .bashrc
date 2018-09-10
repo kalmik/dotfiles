@@ -73,7 +73,6 @@ export NVM_DIR="$HOME/.nvm"
 if [[ -S "$SSH_AUTH_SOCK" && ! -h "$SSH_AUTH_SOCK" ]]; then
     ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock;
 fi
-export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock;
 
 LS_COLORS='ow=01;36;40'
 export LS_COLORS
@@ -102,4 +101,5 @@ function sssh() {
 export DISPLAY=:0.0
 export LIBGL_ALWAYS_INDIRECT=1
 alias tmux='tmux -u'
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock;
 eval `dircolors ~/dotfiles/dircolors-solarized/dircolors.256dark`
