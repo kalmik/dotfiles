@@ -101,5 +101,5 @@ function sssh() {
 export DISPLAY=:0.0
 export LIBGL_ALWAYS_INDIRECT=1
 alias tmux='tmux -u'
-export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock;
+source ~/.envrc
 eval `dircolors ~/dotfiles/dircolors-solarized/dircolors.256dark`

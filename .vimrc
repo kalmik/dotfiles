@@ -115,7 +115,8 @@ set laststatus=2
 set t_Co=256
 color dracula
 color monokai
-hi Normal ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
+"hi Normal ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
+hi NonText ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
 hi Cursorline ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
 hi LineNr ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
 
