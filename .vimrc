@@ -56,7 +56,8 @@ Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'farmergreg/vim-lastplace'
 Plugin 'Yggdroot/indentLine'
-Plugin 'slashmili/alchemist.vim'
+
+let g:alchemist#elixir_erlang_src='~/.asdf/installs/erlang/20.3.4/'
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
@@ -73,7 +74,7 @@ autocmd Filetype blade setlocal sts=2 sw=2 expandtab
 autocmd Filetype perl setlocal sts=4 sw=4 expandtab
 autocmd Filetype sh setlocal sts=4 sw=4 expandtab
 autocmd Filetype javascript setlocal sts=2 sw=2 expandtab
-autocmd Filetype euphoria3 setlocal sts=2 sw=2 expandtab
+autocmd Filetype euphoria3 setlocal sts=2 sw=2 expandtab syntax=html
 autocmd Filetype css setlocal sts=2 sw=2 expandtab
 autocmd Filetype sql setlocal sts=2 sw=2 expandtab
 autocmd Filetype lua setlocal sts=2 sw=2 expandtab
@@ -91,6 +92,8 @@ autocmd Filetype json setlocal sts=4 sw=4 expandtab
 autocmd Filetype yaml setlocal sts=4 sw=4 expandtab
 autocmd Filetype erb setlocal sts=4 sw=4 expandtab
 autocmd Filetype xml setlocal sts=2 sw=2 expandtab
+
+autocmd BufNewFile,BufRead *.ex,*.exs set syntax=elixir
 au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 
 
@@ -113,7 +116,7 @@ set laststatus=2
 "
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
-color dracula
+"color dracula
 color monokai
 "hi Normal ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
 hi NonText ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
@@ -143,3 +146,6 @@ set list
 set listchars=nbsp:¬,tab:»·,trail:·,eol:$,extends:>,precedes:<
 highlight NonText term=standout cterm=bold ctermfg=0  guifg=Black
 hi CursorLine gui=underline cterm=underline
+Plugin 'elixir-editors/vim-elixir'
+Plugin 'slashmili/alchemist.vim'
+Plugin 'mhinz/vim-mix-format'
