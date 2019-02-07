@@ -87,7 +87,7 @@ else
 fi
 
 if [ "$(ssh-add -l)" == "The agent has no identities." ]; then
-    ssh-add
+    ssh-add 1> /dev/null 2> /dev/null
 fi
 
 export LC_TMPVIM=/tmp/sergio_vimrc
@@ -100,6 +100,16 @@ function sssh() {
 }
 export DISPLAY=:0.0
 export LIBGL_ALWAYS_INDIRECT=1
+
+#TMUX ALIASES
+alias tkill='tmux kill-session -t'
+alias tls='tmux ls'
 alias tmux='tmux -u'
+
 source ~/.envrc
 eval `dircolors ~/dotfiles/dircolors-solarized/dircolors.256dark`
+source $HOME/.asdf/asdf.sh
+source $HOME/.asdf/completions/asdf.bash
+
+alias s2svpn="sudo openvpn --config sfilipe.conf"
+export EDITOR='vim'
