@@ -74,7 +74,7 @@ autocmd Filetype blade setlocal sts=2 sw=2 expandtab
 autocmd Filetype perl setlocal sts=4 sw=4 expandtab
 autocmd Filetype sh setlocal sts=4 sw=4 expandtab
 autocmd Filetype javascript setlocal sts=2 sw=2 expandtab
-autocmd Filetype euphoria3 setlocal sts=2 sw=2 expandtab syntax=html
+autocmd Filetype euphoria3 setlocal sts=2 sw=2 expandtab
 autocmd Filetype css setlocal sts=2 sw=2 expandtab
 autocmd Filetype sql setlocal sts=2 sw=2 expandtab
 autocmd Filetype lua setlocal sts=2 sw=2 expandtab
@@ -93,7 +93,7 @@ autocmd Filetype yaml setlocal sts=4 sw=4 expandtab
 autocmd Filetype erb setlocal sts=4 sw=4 expandtab
 autocmd Filetype xml setlocal sts=2 sw=2 expandtab
 
-autocmd BufNewFile,BufRead *.ex,*.exs set syntax=elixir
+autocmd BufNewFile,BufRead *.ex,*.exs set sts=2 sw=2 expandtab syntax=elixir
 au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 
 
@@ -117,11 +117,14 @@ set laststatus=2
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
 "color dracula
-color monokai
+"color monokai
+colorscheme rupza
+hi clear SignColumn
+
 "hi Normal ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
-hi NonText ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
-hi Cursorline ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
-hi LineNr ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
+"hi NonText ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
+"hi Cursorline ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
+"hi LineNr ctermbg=NONE ctermfg=NONE guifg=NONE guibg=NONE
 
 " Removing whitespaces
 autocmd FileType  BufWritePre * %s/\s\+$//e
@@ -143,9 +146,11 @@ noremap q <Nop>
 set ttyfast
 set cursorline!
 set list
-set listchars=nbsp:¬,tab:»·,trail:·,eol:$,extends:>,precedes:<
-highlight NonText term=standout cterm=bold ctermfg=0  guifg=Black
-hi CursorLine gui=underline cterm=underline
+"set listchars=nbsp:¬,tab:»·,trail:·,eol:$,extends:>,precedes:<
+set listchars=nbsp:¬,tab:»·,trail:·,extends:>,precedes:<
+"highlight NonText term=standout cterm=bold ctermfg=0  guifg=Black
+"hi CursorLine gui=underline cterm=underline
+
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
 Plugin 'mhinz/vim-mix-format'

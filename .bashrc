@@ -27,7 +27,7 @@ function hg_branch () {
 
 
 export EVOLUXROOT=/var/sites/evolux
-PS1='\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\e[0;33m\]$(git_branch)$(hg_branch)\n\[\e[7:49:91m\]\[\e[0m\][\D{%H.%M.%S}] $ '
+PS1='\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\e[0;33m\]$(git_branch)$(hg_branch)\n\[\e[0m\][\D{%H.%M.%S}] $ '
 export EVOLUXNODEROOT=~/evolux-node
 export edev="172.16.7.137"
 alias edev-login="ssh root@$edev -p 2222"
@@ -106,7 +106,6 @@ alias tkill='tmux kill-session -t'
 alias tls='tmux ls'
 alias tmux='tmux -u'
 
-source ~/.envrc
 eval `dircolors ~/dotfiles/dircolors-solarized/dircolors.256dark`
 source $HOME/.asdf/asdf.sh
 source $HOME/.asdf/completions/asdf.bash
