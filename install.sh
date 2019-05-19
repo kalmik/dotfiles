@@ -2,6 +2,13 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.2
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+cd ~/.asdf
+git checkout "$(git describe --abbrev=0 --tags)"
+
+
 if [ "$(uname)" == "Darwin" ]; then
     brew install tmux
     brew install reattach-to-user-namespace
