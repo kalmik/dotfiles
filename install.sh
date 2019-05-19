@@ -25,8 +25,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone git@github.com:seebi/dircolors-solarized.git
 mkdir -p ~/.vim/colors
-wget https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim
-mv monokai.vim ~/.vim/colors
+
+cp -r ./vim/colors/* ~/.vim/colors
 
 ln -sfv "$DIR/.vimrc" ~/.vimrc
 ln -sfv "$DIR/.tmux.conf" ~/.tmux.conf
