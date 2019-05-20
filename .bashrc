@@ -98,8 +98,6 @@ function sssh() {
     scp -P2222 ~/.bashrc root@$host:$LC_TMPBASH
     ssh -o SendEnv=LC_TMPVIM root@$host -p2222
 }
-export DISPLAY=:0.0
-export LIBGL_ALWAYS_INDIRECT=1
 
 #TMUX ALIASES
 alias tkill='tmux kill-session -t'
