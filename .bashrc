@@ -49,17 +49,13 @@ function restart_evolux() {
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 
-export ONE_SKY_API_KEY="e1DEAQ0FIeEVfyatNsYHgoyFs7Nq3GX8"
-export ONE_SKY_API_SECRET="Ji86AJmwf1n8nb4ooprE3Yz1yeJi762G"
-export ONE_SKY_PROJECT_ID="226035"
-
 if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
     source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 fi
 
 
 export GOROOT=$HOME/go-home
-export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:/snap/bin:$GOROOT/bin
 # safe sed grep get_random_password ./ --include=*.py | awk '{print }' | cut -d : -f 1 | uniq | awk '{print sed -i.bak s/get_random_password/random_secret/  -bash}' | sh -
 # tmux a -d
 
@@ -90,6 +86,12 @@ if [ "$(ssh-add -l)" == "The agent has no identities." ]; then
     ssh-add 1> /dev/null 2> /dev/null
 fi
 
+for i in /var/lib/snapd/desktop/applications/*.desktop; do
+    if [ ! -f ~/.local/share/applications/${i##*/} ];then
+            ln -s /var/lib/snapd/desktop/applications/${i##*/} ~/.local/share/applications/${i##*/};
+    fi;
+done
+
 export LC_TMPVIM=/tmp/sergio_vimrc
 export LC_TMPBASH=/tmp/sergio_bash
 function sssh() {
@@ -107,6 +109,7 @@ alias tmux='tmux -u'
 eval `dircolors ~/dotfiles/dircolors-solarized/dircolors.256dark`
 source $HOME/.asdf/asdf.sh
 source $HOME/.asdf/completions/asdf.bash
+source $HOME/.env
 
 alias s2svpn="sudo openvpn --config sfilipe.conf"
 export EDITOR='vim'
