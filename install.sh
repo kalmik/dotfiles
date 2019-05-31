@@ -15,7 +15,7 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install vim
     ln -sfv "$DIR/.bash_profile" ~/.bash_profile
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    sudo apt-get -y install tmux  vim-gtk curl snapd
+    sudo apt-get -y install tmux  vim-gtk curl snapd meld
     sudo apt-get -y install build-essential autoconf install libncurses5-dev libssl-dev
     snap install pycharm-community clion intellij-idea-community --classic
     ln -sfv "$DIR/.bashrc" ~/.bashrc

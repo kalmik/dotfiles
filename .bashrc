@@ -113,3 +113,4 @@ source $HOME/.env
 
 alias s2svpn="sudo openvpn --config sfilipe.conf"
 export EDITOR='vim'
+alias rmtun0="sudo route del -net 172.16.0.0 gw 172.16.17.1 netmask 255.255.224.0 dev tun0"
