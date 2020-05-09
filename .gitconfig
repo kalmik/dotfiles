@@ -1,6 +1,6 @@
 [user]
     name = Sergio Filipe
-    email = sergio.kalmik@gmail.com
+    email = sergio.filipe@evolux.net.br
     editor = vim
 [alias]
     # Add
@@ -82,3 +82,21 @@
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
+
+# ------------------ M E R G E -------------------------
+[merge]
+    tool = meld
+
+[mergetool "meld"]
+    cmd = meld --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output \"$MERGED\" --label \"MERGE (REMOTE BASE MY)\"
+    trustExitCode = false
+
+[mergetool]
+    # don't ask if we want to skip merge
+    prompt = false
+
+    # don't create backup *.orig files
+    keepBackup = false
+
+[pull]
+	rebase = true

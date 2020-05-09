@@ -12,3 +12,5 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 evolux/webpack/npm-shrinkwrap.json
+.idea
+*.iml
